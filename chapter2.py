@@ -1,4 +1,6 @@
+# string
 language = "python"
+
 
 # 宽度为30
 # ^居中对齐
