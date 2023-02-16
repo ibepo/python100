@@ -1,4 +1,3 @@
-# list
 cars = ["audi", "bwm", "toyota"]
 for car in cars:
     if car == "bwm":
@@ -32,3 +31,5 @@ requested_top = []
 
 if not requested_top:
     print("your requested_top is empty")
+
+# list comprehentions
