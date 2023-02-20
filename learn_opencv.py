@@ -1,11 +1,19 @@
-cars = ["haoda", "toyouta"]
+import cv2
+import os
 
-for car in cars:
-    print(car)
+RTSP_URL = "rtsp://test.lhehs.com:32701/profile1"
+# os.environ["OPENCV_FFMPEG_CAPTURE_OPTIONS"] = "rtsp_transport;udp"
+cap = cv2.VideoCapture(RTSP_URL, cv2.CAP_FFMPEG)
 
-print("\n")
+if not cap.isOpened():
+    print("Cannot open RTSP stream")
+    exit(-1)
 
-square = {x * x for x in range(20)}
+while cap.isOpened:
+    _, frame = cap.read()
+    cv2.imshow("RTSP stream", frame)
 
-for temp in square:
-    print(temp)
+key = cv2.waitKey(1)
+if "q" == ord(key):
+    cap.release()
+    cv2.destroyAllWindows()
